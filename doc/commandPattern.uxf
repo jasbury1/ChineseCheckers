@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>90</y>
+      <w>225</w>
+      <h>265</h>
+    </coordinates>
+    <panel_attributes>ChineseCheckersModel
+-
+-positionsByPlayer: HashMap&lt;String, HashMap&lt;Point, Point&gt; &gt;
+-boardPositions: ArrayList&lt;Point&gt;
+-players: Player[]
+-LOCK: ReentrantLock
+-O_LOCK: ReentrantLock
+-condition: Condition
+-StartingPositions: HashMap&lt;String, HashMap&lt;Point, Point&gt; &gt;
+-observers: ArrayList&lt;ChineseCheckersObserver&gt;
+-currentPlayer: Player
+-selectedPoint: Point
+-possibleMoves: ArrayList&lt;Point&gt;
+-movesTaken: Stack&lt;MoveCommand&gt;
+-gameOver: boolean
+-
++getState(): ChineseCheckersState
++nextTurn()
++prevTurn()
++executeMove()
++executeUndo()
++executeSelect()
++getNeighboringMoves()
++getHoppingMoves()
++getRobotTurn()
++finishRobotTurn()
++findOccupant(): Point
++attach(o: ChineseCheckersObserver)
++detach(o: ChineseCheckersObserver)
++notifyObservers()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>235</x>
+      <y>150</y>
+      <w>140</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>Player
+-
+-PLAYER_NUMBER: int
+-occupiedPositions: HashMap&lt;Point&gt;
+-startPositions: ArrayList&lt;point&gt;
+-
++initStartLocations(source: Point)
++getColor: String
++equals(o: Object)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>235</x>
+      <y>255</y>
+      <w>140</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>Robot
+-
+-model: ChineseCheckersModel
+-monteCarlo: MonteCarloImplementation
+-running: boolean
+-killed:boolean
+-
++run()
++equals(o: Object)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>295</x>
+      <y>220</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>90</y>
+      <w>160</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>ClickHandler
+-
+-model: ChineseCheckersModel
+-component: ChineseCheckersViewer
+-command: Command
+-
++mouseReleased(e: MouseEvent)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>825</x>
+      <y>105</y>
+      <w>70</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>885</x>
+      <y>100</y>
+      <w>95</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+Command
+-
+-
++execute()
++undo()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>280</y>
+      <w>160</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+&lt; sends command</panel_attributes>
+    <additional_attributes>10.0;20.0;300.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>955</x>
+      <y>255</y>
+      <w>130</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>SelectCommand
+-
+-model: ChineseCheckersModel
+-selected: Point
+-Paricipant: Player
+-
++execute()
++undo()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>790</x>
+      <y>255</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>MoveCommand
+-
+-model: ChineseCheckersModel
+-to: Point
+-from: Point
+-
++execute()
++undo()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>140</y>
+      <w>95</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;140.0;10.0;140.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>930</x>
+      <y>140</y>
+      <w>100</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0;180.0;140.0;180.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>430</y>
+      <w>270</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>MonteCarloImplementation
+-
+-player: String
+-model: ChineseCheckersModel
+-
++getLegalMoves(from: ChineseCheckersState): List&lt;MoveCommand&gt;
++applyMove(from: ChineseCheckersState, move: MoveCommand): ChineseCheckersState
++getWinningTeam(state: ChineseCheckersState): Player
++getLastTeamToMove(state: ChineseCheckersState): Player
++heuristicChoice(moves: Lists&lt;MoveCommand&gt;): MoveRecord
++getCancelPlay(): boolean
++tryPiece(piece: Point, moves: ArrayList&lt;MoveCommand&gt;, state: ChineseCheckersState)
++getNeighboringMoves()
++getHoppingMoves
++findOccupant(p: Point, state: ChineseCheckersState): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>325</y>
+      <w>90</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+selects move for Robot</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>280</y>
+      <w>60</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+modifies</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>315</y>
+      <w>405</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+&lt; sends command</panel_attributes>
+    <additional_attributes>10.0;40.0;790.0;40.0;790.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>435</x>
+      <y>310</y>
+      <w>495</w>
+      <h>205</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses ^</panel_attributes>
+    <additional_attributes>920.0;10.0;920.0;390.0;10.0;390.0</additional_attributes>
+  </element>
+</diagram>

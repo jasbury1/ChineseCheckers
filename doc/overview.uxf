@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>651</x>
+      <y>98</y>
+      <w>77</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Main</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>532</x>
+      <y>322</y>
+      <w>133</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>RobotLauncher
+-
+-
++getName(): String
++run(args: List): boolean
++addUnitTests(tests: List)
++printUsage()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>679</x>
+      <y>112</y>
+      <w>70</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+Creates v</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>686</x>
+      <y>322</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>ChineseCheckersLauncher
+-
+-
++getName(): String
++run(args: List): boolean
++addUnitTests(tests: List)
++printUsage()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>175</y>
+      <w>147</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>GameLauncher
+-
+-
++getName(): String
++run(args: List): boolean
++addUnitTests(tests: List)
++printUsage()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>245</y>
+      <w>98</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>120.0;10.0;120.0;50.0;10.0;50.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>679</x>
+      <y>245</y>
+      <w>98</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;120.0;50.0;120.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>763</x>
+      <y>490</y>
+      <w>315</w>
+      <h>329</h>
+    </coordinates>
+    <panel_attributes>ChineseCheckersModel
+-
+-positionsByPlayer: HashMap&lt;String, HashMap&lt;Point, Point&gt; &gt;
+-boardPositions: ArrayList&lt;Point&gt;
+-players: Player[]
+-LOCK: ReentrantLock
+-O_LOCK: ReentrantLock
+-condition: Condition
+-StartingPositions: HashMap&lt;String, HashMap&lt;Point, Point&gt; &gt;
+-observers: ArrayList&lt;ChineseCheckersObserver&gt;
+-currentPlayer: Player
+-selectedPoint: Point
+-possibleMoves: ArrayList&lt;Point&gt;
+-movesTaken: Stack&lt;MoveCommand&gt;
+-gameOver: boolean
+-
++getState(): ChineseCheckersState
++nextTurn()
++prevTurn()
++executeMove()
++executeUndo()
++executeSelect()
++getNeighboringMoves()
++getHoppingMoves()
++getRobotTurn()
++finishRobotTurn()
++findOccupant(): Point
++attach(o: ChineseCheckersObserver)
++detach(o: ChineseCheckersObserver)
++notifyObservers()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>763</x>
+      <y>385</y>
+      <w>70</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+creates v</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>357</y>
+      <w>84</w>
+      <h>427</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+creates
+0..6</panel_attributes>
+    <additional_attributes>60.0;590.0;10.0;590.0;10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>819</x>
+      <y>385</y>
+      <w>616</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+creates &gt;</panel_attributes>
+    <additional_attributes>860.0;140.0;860.0;90.0;10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>574</y>
+      <w>196</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Player
+-
+-PLAYER_NUMBER: int
+-occupiedPositions: HashMap&lt;Point&gt;
+-startPositions: ArrayList&lt;point&gt;
+-
++initStartLocations(source: Point)
++getColor: String
++equals(o: Object)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>721</y>
+      <w>196</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Robot
+-
+-model: ChineseCheckersModel
+-monteCarlo: MonteCarloImplementation
+-running: boolean
+-killed:boolean
+-
++run()
++equals(o: Object)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>672</y>
+      <w>21</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>693</x>
+      <y>756</y>
+      <w>84</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+attaches &gt;</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>693</x>
+      <y>609</y>
+      <w>84</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+List of</panel_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1330</x>
+      <y>483</y>
+      <w>231</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>ChineseCheckersViewer
+-
+-name: String
+-model: ChineseCheckersModel
+-window: GameWindow
++undo: BufferedImage
++wood: BufferedImage
+-
++init()
++start()
++update()
++paint(g: Graphics)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1071</x>
+      <y>504</y>
+      <w>273</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+updates &gt;</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>861</x>
+      <y>875</y>
+      <w>329</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>ChineseCheckersState
+-
+-currentPlayer: String
+-board: ArrayList&lt;Point&gt;
+-highlightedPoints: ArrayList&lt;Point&gt;
+-highlightedPoints:HashMap&lt;String, HashMap&lt;Point&gt; &gt;
+-startingPositions:HashMap&lt;String, HashMap&lt;Point&gt; &gt;
+-
++accept(v: ChineseCheckersVisitor)
++getCurrentPlayer(): String
++getGameWinner(): String
++getLastPlayer(): String
++getNextPlayer(): String
++hashCode: int
++equals(o: Object): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>812</y>
+      <w>70</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+creates v</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1267</x>
+      <y>875</y>
+      <w>315</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>ChineseCheckersVisitor
+-
+-g: Graphics2D
+-componentH: double
+-componentW: double
+-radius: double
+-
++visitHighlight(x: int, y: int, color: Color)
++visitBlue(x: int, y: int, color: Color)
++visitRed(x: int, y: int, color: Color)
++visitMagenta(x: int, y: int, color: Color)
++visitYellow(x: int, y: int, color: Color)
++visitCyan(x: int, y: int, color: Color)
++visitGreen(x: int, y: int, color: Color)
++visitBackground(x: int, y: int, color: Color)
++pointConverter(x: int, y:int): double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1183</x>
+      <y>910</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+accepts &gt;</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1099</x>
+      <y>539</y>
+      <w>245</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+requests</panel_attributes>
+    <additional_attributes>10.0;480.0;10.0;10.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1498</x>
+      <y>343</y>
+      <w>21</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1442</x>
+      <y>294</y>
+      <w>126</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+CheckersObserver
+-
+-
++update()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1001</x>
+      <y>301</y>
+      <w>455</w>
+      <h>203</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+notifies &gt;</panel_attributes>
+    <additional_attributes>630.0;20.0;10.0;20.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1554</x>
+      <y>504</y>
+      <w>133</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1673</x>
+      <y>483</y>
+      <w>224</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>ClickHandler
+-
+-model: ChineseCheckersModel
+-component: ChineseCheckersViewer
+-command: Command
+-
++mouseReleased(e: MouseEvent)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1792</x>
+      <y>553</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1736</x>
+      <y>595</y>
+      <w>133</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+Command
+-
+-
++execute()
++undo()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1071</x>
+      <y>672</y>
+      <w>749</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+&lt; sends command</panel_attributes>
+    <additional_attributes>10.0;20.0;1050.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1834</x>
+      <y>728</y>
+      <w>182</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>SelectCommand
+-
+-model: ChineseCheckersModel
+-selected: Point
+-Paricipant: Player
+-
++execute()
++undo()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1596</x>
+      <y>728</y>
+      <w>182</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>MoveCommand
+-
+-model: ChineseCheckersModel
+-to: Point
+-from: Point
+-
++execute()
++undo()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1680</x>
+      <y>651</y>
+      <w>140</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>180.0;10.0;180.0;70.0;10.0;70.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1799</x>
+      <y>651</y>
+      <w>147</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;190.0;70.0;190.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>1148</y>
+      <w>378</w>
+      <h>217</h>
+    </coordinates>
+    <panel_attributes>MonteCarloImplementation
+-
+-player: String
+-model: ChineseCheckersModel
+-
++getLegalMoves(from: ChineseCheckersState): List&lt;MoveCommand&gt;
++applyMove(from: ChineseCheckersState, move: MoveCommand): ChineseCheckersState
++getWinningTeam(state: ChineseCheckersState): Player
++getLastTeamToMove(state: ChineseCheckersState): Player
++heuristicChoice(moves: Lists&lt;MoveCommand&gt;): MoveRecord
++getCancelPlay(): boolean
++tryPiece(piece: Point, moves: ArrayList&lt;MoveCommand&gt;, state: ChineseCheckersState)
++getNeighboringMoves()
++getHoppingMoves
++findOccupant(p: Point, state: ChineseCheckersState): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>595</x>
+      <y>819</y>
+      <w>126</w>
+      <h>336</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+selects move for Robot</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;460.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>574</y>
+      <w>392</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>BoardUtil
+-
+model: ChineseCheckersModel
+-
++onBoard(p: Point): boolean
++inHome(player: Player, p: Point)
++inDestination(player: Player, p: Point, state: ChineseCheckersState): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>791</x>
+      <y>1183</y>
+      <w>203</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+requests instance</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>987</x>
+      <y>1169</y>
+      <w>329</w>
+      <h>217</h>
+    </coordinates>
+    <panel_attributes>Singleton
+Heuristic
+-
+-blueValues: HashMap&lt;RankedPosition, Integer&gt;
+-redValues: HashMap&lt;RankedPosition, Integer&gt;
+-yellowValues: HashMap&lt;RankedPosition, Integer&gt;
+-greenValues: HashMap&lt;RankedPosition, Integer&gt;
+-cyanValues: HashMap&lt;RankedPosition, Integer&gt;
+-magentaValues: HashMap&lt;RankedPosition, Integer&gt;
+-
++getInstance(): Heuristic
++generateValues(goal: Point)
++getMovesByColor(color: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1309</x>
+      <y>1218</y>
+      <w>133</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+maps of</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1428</x>
+      <y>1197</y>
+      <w>98</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>RankedPosition
+-
+x: int
+y: int
+value: int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>434</x>
+      <y>987</y>
+      <w>147</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>MonteCarloAlgorithm</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>1015</y>
+      <w>21</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+</diagram>
